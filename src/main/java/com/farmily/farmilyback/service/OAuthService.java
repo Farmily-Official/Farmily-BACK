@@ -21,8 +21,6 @@ public class OAuthService {
 
     public String getKakaoAccessToken (String code) {
 
-        System.out.println(api_Key +" "+ callback_URL);
-
         String access_Token = "";
         String refresh_Token = "";
         String reqURL = "https://kauth.kakao.com/oauth/token";
@@ -115,7 +113,6 @@ public class OAuthService {
             userInfo.put("email", email);
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
