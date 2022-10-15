@@ -2,11 +2,12 @@ package com.farmily.farmilyback.data.dto;
 
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
-import javax.validation.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
-@Data
+import javax.validation.constraints.NotEmpty;
 public class UserDto {
 
+    @Data
     @NoArgsConstructor
     @Builder
     @AllArgsConstructor
@@ -16,16 +17,26 @@ public class UserDto {
         @Length(min = 1,max = 15, message = "닉네임은 15자 이하로 설정해주세요.")
         private String displayName;
     }
-
-    @Getter
-    @Setter
+    @Data
+    @Builder
     @AllArgsConstructor
     @NoArgsConstructor
     public static class UserResponseDto {
         private Long id;
-        private String username;
+        private String userName;
         private String displayName;
         private String email;
+        private String profile_image;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class UserRequestDto {
+        private String email;
+        private String userName;
+        private String displayName;
         private String profile_image;
     }
 

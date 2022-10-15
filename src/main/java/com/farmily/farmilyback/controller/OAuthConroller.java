@@ -1,5 +1,6 @@
 package com.farmily.farmilyback.controller;
 
+import com.farmily.farmilyback.data.dto.KakaoCheckDto;
 import com.farmily.farmilyback.data.dto.UserDto;
 import com.farmily.farmilyback.service.OAuthService;
 import com.farmily.farmilyback.service.UserService;
@@ -18,21 +19,27 @@ import java.util.HashMap;
 public class OAuthConroller {
     OAuthService oAuth;
 
-/*    @Autowired
-    private UserService userService;*/
+    @Autowired
+    private UserService userService;
+
     @Autowired
     public OAuthConroller(OAuthService oAuthService) {
         oAuth = oAuthService;
     }
 
-/*
     @ResponseBody
     @ApiIgnore
     @GetMapping("/kakao/callback")
-    public ResponseEntity<UserDto.UserResponseDto> kakaoCallback(@RequestParam String code){
+    public ResponseEntity<KakaoCheckDto> kakaoCallback(@RequestParam String code) {
         String token = oAuth.getKakaoAccessToken(code);
         HashMap<String, Object> userInfo = oAuth.getUserInfo(token);
-        UserDto.UserResponseDto userResponseDto = userService.findUser((String) userInfo.get("email"));
-        return new ResponseEntity<>(userResponseDto, HttpStatus.OK);
-    }*/
+        /*KakaoCheckDto kakaoCheckDto = new KakaoCheckDto();
+        kakaoCheckDto.setName(userInfo.get("nickname").toString());
+        kakaoCheckDto.setEmail(userInfo.get("email").toString());
+        *//*kakaoCheckDto.setProfile_image(userInfo.get("thumbnail_image").toString());*//*
+        kakaoCheckDto.setExist(userService.checkUser(userInfo.get("email").toString()));
+        return ResponseEntity.status(HttpStatus.OK).body(kakaoCheckDto);*/
+        System.out.println(userInfo);
+        return null;
+    }
 }

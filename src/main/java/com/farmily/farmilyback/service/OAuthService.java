@@ -111,7 +111,7 @@ public class OAuthService {
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
-
+            System.out.println(element);
         } catch (IOException e) {
             e.printStackTrace();
         }

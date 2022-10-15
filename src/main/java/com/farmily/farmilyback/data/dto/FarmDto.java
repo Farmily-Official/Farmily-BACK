@@ -5,8 +5,6 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Data
-@Getter
-@Setter
 public class FarmDto {
 
 }
