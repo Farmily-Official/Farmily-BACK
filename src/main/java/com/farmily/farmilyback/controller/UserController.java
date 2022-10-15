@@ -49,7 +49,7 @@ public class UserController {
             return ResponseDto.builder()
                     .code("201")
                     .data(userResponseDto)
-                    .message("회원가입이 완료되었습니다.")
+                    .message("회원가입이 완료되었습니다!")
                     .build();
         }
     }
